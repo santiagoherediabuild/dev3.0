@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifest — Tender Intelligence for Daniel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-title">
+      <h1>Manifest</h1>
+      <p class="subhead">Government tender intelligence, ranked for supply chain &amp; operations advisory</p>
+    </div>
+    <div class="masthead-stats" id="masthead-stats">
+      <div class="stat">
+        <span class="stat-value" id="stat-count">–</span>
+        <span class="stat-label">open opportunities</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-top">–</span>
+        <span class="stat-label">top match score</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-updated">–</span>
+        <span class="stat-label">last refreshed</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="filters" id="filters">
+    <div class="filter-group">
+      <label for="search">Search</label>
+      <input type="search" id="search" placeholder="Title, agency, keyword…">
+    </div>
+
+    <div class="filter-group">
+      <label for="min-score">Minimum match score: <span id="min-score-value">0</span></label>
+      <input type="range" id="min-score" min="0" max="10" step="0.5" value="0">
+    </div>
+
+    <div class="filter-group">
+      <label for="jurisdiction">Jurisdiction</label>
+      <select id="jurisdiction">
+        <option value="">All jurisdictions</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="capability">Capability</label>
+      <select id="capability">
+        <option value="">All capabilities</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="sort-by">Sort by</label>
+      <select id="sort-by">
+        <option value="score">Match score, highest first</option>
+        <option value="close">Close date, soonest first</option>
+        <option value="value">Contract value, highest first</option>
+      </select>
+    </div>
+
+    <button class="reset-btn" id="reset-filters">Clear filters</button>
+  </aside>
+
+  <section class="results">
+    <div id="empty-state" class="empty-state" hidden>
+      <h2>No opportunities yet</h2>
+      <p>Run <code>scripts/fetch_tenders.py</code> after adding a CSV export to <code>data/incoming/</code>, or wait for the next scheduled refresh. Nothing has matched Daniel's criteria yet, or no source data has been loaded.</p>
+    </div>
+    <div id="no-results" class="empty-state" hidden>
+      <h2>No matches for these filters</h2>
+      <p>Try lowering the minimum match score or clearing a filter.</p>
+    </div>
+    <ol class="manifest-list" id="manifest-list"></ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Data refreshes on a schedule via GitHub Actions. Scoring criteria live in <code>config/scoring_config.json</code>, edit that file to retune what counts as a match.</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

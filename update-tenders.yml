@@ -1,0 +1,42 @@
+name: Refresh tender data
+
+on:
+  schedule:
+    # 20:00 UTC = 6am AEST / 7am AEDT, so this lands as a morning refresh
+    # in Australia year-round. Adjust the hour here if you want it earlier
+    # or later.
+    - cron: "0 20 * * *"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "data/incoming/**"
+      - "config/scoring_config.json"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run scoring engine
+        run: python scripts/fetch_tenders.py
+
+      - name: Commit updated data if changed
+        run: |
+          git config user.name "tender-intel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tenders.json data/debug 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Refresh scored tenders"
+          git push

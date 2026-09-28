@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-09-28T01:18:09.801463+00:00",
+  "tenders": [
+    {
+      "title": "National Agricultural Supply Chain Resilience Strategy",
+      "agency": "Department of Agriculture Fisheries and Forestry",
+      "state": "National",
+      "close_date": "2026-11-15",
+      "publish_date": null,
+      "value": 850000.0,
+      "description": "Development of a national strategy to strengthen resilience and sovereign capability across agricultural supply chains, including a feasibility study on regional freight hubs.",
+      "url": "https://tenders.gov.au/atm/1001",
+      "reference": "ATM1001",
+      "match_score": 8.5,
+      "match_reasons": [
+        "Matches: supply chain, agricultural supply chain, freight, sovereign capability",
+        "Priority federal buyer: Department of Agriculture, Fisheries and Forestry"
+      ],
+      "recommended_capability": "Supply Chain & Operations Advisory",
+      "excluded": false
+    },
+    {
+      "title": "Regional Freight Precinct Feasibility Study",
+      "agency": "Transport for NSW",
+      "state": "NSW",
+      "close_date": "2026-11-20",
+      "publish_date": null,
+      "value": 1200000.0,
+      "description": "Feasibility study and business case for a new regional freight and logistics precinct supporting supply chain transformation in regional NSW.",
+      "url": "https://buy.nsw.gov.au/atm/2001",
+      "reference": "NSW2001",
+      "match_score": 8.2,
+      "match_reasons": [
+        "Matches: supply chain, supply chain transformation, logistics, freight",
+        "Priority state buyer: Transport for NSW"
+      ],
+      "recommended_capability": "Supply Chain & Operations Advisory",
+      "excluded": false
+    },
+    {
+      "title": "Critical Minerals Export Market Access Review",
+      "agency": "Austrade",
+      "state": "National",
+      "close_date": "2026-12-01",
+      "publish_date": null,
+      "value": 650000.0,
+      "description": "Business case and market access strategy for expanding critical minerals exports to Asian markets.",
+      "url": "https://tenders.gov.au/atm/1003",
+      "reference": "ATM1003",
+      "match_score": 7.3,
+      "match_reasons": [
+        "Matches: critical minerals, trade, market access, export",
+        "Priority federal buyer: Austrade"
+      ],
+      "recommended_capability": "Trade & Customs",
+      "excluded": false
+    }
+  ]
+}
